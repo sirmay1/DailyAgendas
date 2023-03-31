@@ -1,0 +1,75 @@
+NOTE: Copy of the user_login.html file:
+
+{% extends 'base.html' %}
+
+<title>{% block text %}Welcome{% endblock %}</title>
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{% if user.is_authenticated %}
+<h1 class="title">Daily Agenda</h1>
+
+{% else %}
+<div class="form_container">
+<form action="{% url 'user_login' %}" method="POST" class="form"><br><br><br>
+    {% csrf_token %}
+    <input type="text" name="form_login" class="Flogin" placeholder="user name" required><br>
+    <label for="form_login" class="Llogin">Username</label><br><br>
+    <input type="password" name="form_password" class="Fpassword" placeholder="passcode" required>
+    <label for="form_password" class="Lpassword">Password</label><br><br><br>
+    <button type="submit" class="Fbtn">Login</button><br><br>
+</form>
+<div class="grid"><br>
+   <h2 class="Fheader">Please Login</h2>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+NOTE: Copy of blocks content in base.html:
+
+    <br>
+{% if messages %}
+    {% for message in messages %}
+    <script type="text/javascript">
+        alert("{{ message }}");
+    </script>
+      
+    {% endfor %}
+{% endif %}
+
+-------------------------------------------------------
+NOTE: This is logic used for the views.py file under posting function:
+
+
+def posting(request, pk):
+
+ tweet = [
+        {'id': 1, 'post': 'Learning Django!'},
+        {'id': 2, 'post': 'Learning JavaScript!'},
+        {'id': 3, 'post': 'learning PHP!'},
+        {'id': 4, 'post': 'learning Python!'},
+        {'id': 5, 'post': 'learning React!'},
+        {'id': 6, 'post': 'learning Laravel!'},
+        {'id': 7, 'post': 'learning node.js!'},
+        {'id': 8, 'post': 'learning Express.js!'},
+        {'id': 9, 'post': 'learning BootStrap!'},
+        {'id': 10, 'post': 'learning Tailwind.js!'},
+        {'id': 11, 'post': 'learning MySQL!'},
+        {'id': 12, 'post': 'learning SQLite3!'},
+        {'id': 13, 'post': 'learning Github!'},
+        {'id': 15, 'post': 'learning HTML5!'},
+        {'id': 16, 'post': 'learning CSS3!'},
+    ]
+
+     context = {'tweeting': tweeting}
+    return render(request, "dailyapp/posting.html", context)
+
+--------------------------------------------------------------------------------
+
+                        ALERT NOTICE:
+NOTE: Using JavaScript to render python control flow
+

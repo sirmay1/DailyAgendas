@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<title>
+{% block title %}
+User Login
+{% endblock %}
+</title>
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<script type="text/javascript">
+    alert("Welcome! You are now authenticated!")
+</script>
+<br /><br><br /><br><br /><br><br /><br>
+<div class='welcome_login'>
+<h1 class="logged_in_title">Welcome!</h1>
+<p class='para'>You are now logged in...</p>
+</div>
+
+{% else %}
+<div class="login_container">
+    <h2 class="title">Login</h2>
+    <br />
+<form action="{% url 'login' %}" method="post" class="form"> {% csrf_token %} 
+    <br><br>
+<div class="form-group">
+    <input type="text" name="username" id="username" class="Flogin" placeholder="User Name" required><br>
+    <label for="username" class="Llogin">User Name</label><br><br>
+    <input type="password" name="password" id="password" class="Fpassword" placeholder="Passcode" required>
+    <label for="password" class="Lpassword">Password</label>
+</div>
+<br><br>
+    <button type="submit" class="Fbtn">Login</button>
+</form>
+
+</div>
+{% endif %}
+{% endblock %}

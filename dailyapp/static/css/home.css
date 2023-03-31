@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: steelblue;
+    border: 4px solid white;
+    height: 100vh;
+}
+.h1 {
+    color: white;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia;
+    font-size: 2.6rem;
+    font-weight: 300;
+}
+.h3 {
+    color: white;
+    font-family: Tahoma;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: end;
+}

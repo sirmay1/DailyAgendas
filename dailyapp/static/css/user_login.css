@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: steelblue;
+    border: 4px solid white;
+    height: 100vh;
+}
+.login_container {
+    position: absolute;
+    bottom: 35%;
+    left: 35%;
+}
+.logged_in_title {
+    font-size: 6rem;
+    font-family:Cambria, Cochin, Georgia;
+    color: white;
+    padding-left: 50px;
+    text-align: center;
+    font-weight: 100;
+}
+.title {
+    position: relative;
+    font-size: 3.2rem;
+    font-family: 'Arial Narrow', Arial, sans-serif Helvetica, Cambria, Cochin, Georgia;
+    color: white;
+    text-align: center;
+    font-weight: 100;
+}
+.para {
+    font-size: 2rem;
+    font-family:Cambria, Cochin, Georgia;
+    color: white;
+    text-align: center;
+}
+.Fheader {
+    color: white;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 1.2rem;
+    border-bottom: 4px double white;
+}
+.form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 40%;
+    left: 0%;
+}
+.form {
+    position: static;
+    bottom: auto;
+    background-color: royalblue;
+    border:3px solid white;
+    border-radius: 4px;
+    width: 400px;
+    height: 40vh;
+    padding: 10px;
+    text-align: center;
+}
+.form:hover {
+    border: 3px solid lightblue;
+}
+.Lpassword, .Llogin {
+    font-family: 'Gothic Medium';
+    font-size: 1rem;
+    color: whitesmoke;
+}
+.Fbtn {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 2.5px;
+    text-align: center;
+    font-family: Serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    background-color: rgb(23, 23, 212);
+    color: white;
+    width: 160px;
+    cursor: pointer;
+}
+.Fbtn:hover {
+    border: 2px double white;
+    background-color: blue;
+    color: rgb(234, 234, 52);
+}
+.Flogin, .Fpassword {
+    border: 4px double lightskyblue;
+    width: 320px;
+    padding: 2.5px;
+}
+.Flogin:hover {
+    border: 4px double blue;
+}
+.Fpassword:hover {
+    border: 4px double blue;
+}

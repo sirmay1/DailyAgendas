@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<title>
+{% block title %}
+Post Blog
+{% endblock %}
+</title>
+
+{% include 'navbar.html' %}
+
+{% block content %}
+<h1>Twitter Clone</h1>
+<p>This is my first CRUD application which I am trying to attempt! It is a lengthy processes and very hard, but I am not giving up! So far I am not doing great with this project but I am learning a lot. I am learning what not to do. I am gaining a better understanding of how Django works and given time I will master this framework!</p>
+
+<div>
+    {% for tweet in twitter %}
+    <div>
+        <center>
+            <h3>{{ tweet.id }}: "{{ tweet.post }}"</h3>
+        </center>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock content %}

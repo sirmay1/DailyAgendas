@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -53,10 +52,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dailyplanner.urls'
 
+
+# REGISTERED TEMPLATE FILES(static & templates) added for the static content to be linked the following info. 'DIRS': 'this added' -->   'DIRS': [BASE_DIR, 'templates'], (3/25/23) @ the moment I have this written in the TEMPLATE: -->  'DIRS': [os.path.join(BASE_DIR,'templates')],  
+
+
+import os
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Dailyplanner',
         'USER': 'root',
-        'PASSWORD': 'Guildwars123###',
+        'PASSWORD': 'Password123###',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -126,4 +132,19 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# added the "LOGIN_REDIRECT_URL = "/" for backwards compatibility
+LOGIN_REDIRECT_URL = "/"
+
+# REGISTERED TEMPLATE FILES(static & templates) this function has been added as well the info for 'TEMPLATES' function on this settings.py file (3/25/23)
+
+#STATICFILES_DIRS = [
+#    BASE_DIR / 'dailyapp/static/',
+#]
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'dailyapp/static',
+]
