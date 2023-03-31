@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout  
 #messages notifications imported to user letting them know they are logged out or in.
 from django.contrib import messages 
+from .forms import SignUpForm
 
 
 # Create your views here.
@@ -32,7 +33,19 @@ def user_logout(request):
     return redirect('login')
 
 def user_register(request):
-    return render(request, 'user_register.html', {})
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #have the user sign-in
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, "You are now successfully logged into the system!")
+            return redirect('register')
+        form = SignUpForm()
+        return render(request, 'user_register.html', { 'form': form })
     
 def home(request):
     return render(request, 'home.html', {})
