@@ -4,6 +4,7 @@
 User Login
 {% endblock %}
 </title>
+
 {% block content %}
 
 {% if user.is_authenticated %}
@@ -15,13 +16,17 @@ User Login
 <div class='welcome_login'>
 <h1 class="logged_in_title">Welcome!</h1>
 <p class='para'>You are now logged in...</p>
+<div class="hyperlink_container">
+    <a href="{% url 'index' %}" class="home_hyperlink">click to continue...</a>
+</div>
 </div>
 
 {% else %}
+
 <div class="login_container">
     <h2 class="title">Login</h2>
     <br />
-<form action="{% url 'login' %}" method="post" class="form"> {% csrf_token %} 
+<form action="" method="post" class="form"> {% csrf_token %} 
     <br><br>
 <div class="form-group">
     <input type="text" name="username" id="username" class="Flogin" placeholder="User Name" required><br>

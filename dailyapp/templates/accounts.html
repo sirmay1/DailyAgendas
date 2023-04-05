@@ -7,12 +7,15 @@
     </title>
 
 {% block content %}
-
-{% include 'navbar.html' %}
 <h1 class="h1">PERSONAL ACCOUNT</h1>
-<article>
+<p>Enter a small description which best describes you.</P>
+<main>
+    <form method="post" action="{% url 'accounts' %}">
+    <label for="">Personal Info
     <textarea class="textarea" width="500" height="250">
     </textarea>
-</article>
-<h3></h3>
+</label>
+<button type="submit" class="" value="submit">Update Profile</button>
+</form>
+</main>
 {% endblock %}

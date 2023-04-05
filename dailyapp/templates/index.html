@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 
-<title>
-    {% block title %}
-    Journal Content
-    {% endblock %}
-    </title>
+<title>{% block title %}Journal Content{% endblock %}</title>
 
+{% include 'navbar' %}
 {% block content %}
-<h1 class="h1">The Journal Room</h1>
-<h3 class="h3">Write what comes to mind!</h3>
-<p class="p">This is your landing page. The file name is index.html but you will refer to this page as the main page even though the path and the file namne is index.html. make sure this page is linked first on the path as being your main page.
+<h1 class="h1">Landing Page "root"</h1>
+<br><br><br><br><br><br>
+<p>This is the landing page or the "root" file for all files. This will be considered the default page where all pages connect too. When people enter this site they will be automatically directed this this index.html file. Where they will have the option of connecting to other content by either logging into the account or viewing the default pages available without login.</p>
 {% endblock %}

@@ -11,18 +11,23 @@
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static 'css/user_login.css' %}" type="text/css">
-<link rel="stylesheet" href="{% static 'css/user_register.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static 'css/posting.css' %}" type="text/css">
 <script type="text/javascript" src="{% static 'js/script.js' %}" type="text/javascript"></script>
 </head>
 <body>
 {% include 'navbar.html' %}
+
 <div>
 <br />
 {% if messages %}
-    {% for message in messages %}
+{% for message in messages %}
 <div class="alert_status">
+
     {{ message }}
+
+<button type="button"></button>
 </div>    
 
     {% endfor %}

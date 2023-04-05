@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 #messages notifications imported to user letting them know they are logged out or in.
 from django.contrib import messages 
 from .forms import SignUpForm
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        #authentication method
+        # this is the method for the authentication process
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -25,7 +26,7 @@ def user_login(request):
             messages.success(request, "Failed attempted! Please try again later, thank-you!")
             return redirect('login')
     else:
-        return render(request, 'user_login.html', {})
+        return render(request, 'login.html', {})
     
 def user_logout(request):
     logout(request)
@@ -37,24 +38,30 @@ def user_register(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            #have the user sign-in
+            #have the guest sign-in to the user account
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "You are now successfully logged into the system!")
-            return redirect('register')
-        form = SignUpForm()
-        return render(request, 'user_register.html', { 'form': form })
+            return redirect('index')
+        else:
+            form = SignUpForm()
+            return render(request, 'register.html', {'form': form})
+        
+        
+    return render(request, 'register.html', {'form': form})
+        
     
+
 def home(request):
     return render(request, 'home.html', {})
 
 def newaccount(request):
     return render(request, "newaccount.html", {})
 
-def useraccount(request):
-    return render(request, "useraccount.html", {})
+def accounts(request):
+    return render(request, "accounts.html", {})
 
 
 
